@@ -1,3 +1,7 @@
+START UP:
+
+Please navigate to GameLibrary directory and open WarGame.sln
+
 NOTES:
 
 This program is written to simulate the War Card Game.  It's written with Object-Oriented Programming in mind, user an object for each relevant aspect of the game.

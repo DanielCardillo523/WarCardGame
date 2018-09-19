@@ -29,7 +29,7 @@ namespace WarConsole
                 // ask the user if they want to either view each play, or let program run continuously until winner is found
                 War.PlayMode gameMode = (answer.ToUpper() == "Y" || answer.ToUpper() == "YES" ? War.PlayMode.PlayByPlay : War.PlayMode.Continuous);
 
-                if (gameMode == War.PlayMode.PlayByPlay) Console.WriteLine("You got it, " + playerName + "!  Please press ENTER between each play. Press ENTER to continue." + Environment.NewLine);
+                if (gameMode == War.PlayMode.PlayByPlay) Console.WriteLine("You got it, " + playerName + "!  Please press ENTER between each play." + Environment.NewLine);
 
                 // initialize War game engine
                 game = new War(new Player(playerName), new Player("Opponent"), gameMode, ConsoleOutput);

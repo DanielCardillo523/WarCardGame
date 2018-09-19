@@ -16,13 +16,13 @@ namespace WarGUI
         #region Global Variables
         GameLibrary.War war = null;
         private const int CardsOnTablePerPlayer = 5;
-        enum BoardPlayer { WarriorWench, WhiteWraith }
+        enum BoardPlayer { WarriorWendy, WhiteWraith }
         #endregion
         #region Events/Screen Initialization
         public UserScreen()
         {
             InitializeComponent();
-            MessageBox.Show("Welcome, dear player!  Please press \"Deal\" to start.  Continue clicking to view each round.  Have fun!", "Welcome!");
+            MessageBox.Show("Welcome, player!  Please press \"Deal\" to start.  Continue clicking to view each round.  Have fun!", "Welcome!");
         }
         /// <summary>
         /// Set up screen and war object to prepare start of game
@@ -30,11 +30,11 @@ namespace WarGUI
         private void initGame()
         {
             // set up players and Report delegate fenction
-            war = new War((new Player("Warrior Wench")), (new Player("White Wraith")), War.PlayMode.Graphical, ReportOutcome);
+            war = new War((new Player("Warrior Wendy")), (new Player("White Wraith")), War.PlayMode.Graphical, ReportOutcome);
             war.GameOn(); // initialize first round (shuffle/assign cards, etc)
 
             // should ALWAYS be 26!  Calculate on the fly for debugging purposes
-            lblWenchCardCount.Visible = true; lblWenchCardCount.Text = "Cards: " + war.Player1.Hand.Count;
+            lblWendyCardCount.Visible = true; lblWendyCardCount.Text = "Cards: " + war.Player1.Hand.Count;
             lblWraithCardCount.Visible = true; lblWraithCardCount.Text = "Cards: " + war.Player2.Hand.Count;
 
             // first cards are turned over 
@@ -63,8 +63,8 @@ namespace WarGUI
                 if (war.GameOver) {
                     MessageBox.Show("We have a winner!  " +
                         (war.Winner == war.Player1 ? 
-                        "She is the Warrior Wench!  GIRL POWER!!": 
-                        "He is the White Wraith!  So now you see, player, that evil will always win, because Good is Dumb.")
+                        "She is the Warrior Wendy!  GIRL POWER!!": 
+                        "He is the White Wraith!  Evil has prevailed!")
                         , "WINNER");
 
                     // offer another game
@@ -76,8 +76,7 @@ namespace WarGUI
                     }
                     else
                     {
-                        // politely/passive-aggressively suggest exercise
-                        MessageBox.Show("Alright, then.  Have a nice day!  Go outside!", "Goodbye!");
+                        MessageBox.Show("Alright, then.  Have a nice day!", "Goodbye!");
                         this.Close();
                     }
                     
@@ -104,7 +103,7 @@ namespace WarGUI
                 initCardImages();
 
                 // Place cards for each player on the table
-                PlaceCards(BoardPlayer.WarriorWench, war.GameTable.Player1Cards);
+                PlaceCards(BoardPlayer.WarriorWendy, war.GameTable.Player1Cards);
                 PlaceCards(BoardPlayer.WhiteWraith, war.GameTable.Player2Cards);
 
                 // which of these cards is used to determine winner of round? Should be most recent in list
@@ -128,8 +127,8 @@ namespace WarGUI
             // Player 1's card is worth more                              
             if (rank == CardRanking.More)
             {
-                // give cards to wench, declare her winner.  Update card count for each player
-                lblWenchCardCount.Text = "Cards: " + (war.Player1.Hand.Count + war.GameTable.Player1Cards.Count + war.GameTable.Player2Cards.Count);
+                // give cards to Wendy, declare her winner.  Update card count for each player
+                lblWendyCardCount.Text = "Cards: " + (war.Player1.Hand.Count + war.GameTable.Player1Cards.Count + war.GameTable.Player2Cards.Count);
                 lblWraithCardCount.Text = "Cards: " + war.Player2.Hand.Count;
                 lblPlayer1Outcome.Visible = true;
                 lblPlayer1Outcome.Text = "WINNER!";
@@ -143,7 +142,7 @@ namespace WarGUI
             {
                 // give cards to wraith, declare him winner.  Update card count for each player
                 lblWraithCardCount.Text = "Cards: " + (war.Player2.Hand.Count + war.GameTable.Player1Cards.Count + war.GameTable.Player2Cards.Count);
-                lblWenchCardCount.Text = "Cards: " + war.Player1.Hand.Count;
+                lblWendyCardCount.Text = "Cards: " + war.Player1.Hand.Count;
                 lblPlayer1Outcome.Visible = true;
                 lblPlayer1Outcome.Text = "LOSER!";
                 lblPlayer1Outcome.ForeColor = Color.Red;
@@ -155,7 +154,7 @@ namespace WarGUI
             else
             {
                 // no winner, just show what each player has on reserve 
-                lblWenchCardCount.Text = "Cards: " + war.Player1.Hand.Count;
+                lblWendyCardCount.Text = "Cards: " + war.Player1.Hand.Count;
                 lblWraithCardCount.Text = "Cards: " + war.Player2.Hand.Count;
 
                 lblPlayer1Outcome.Visible = true;
@@ -166,7 +165,7 @@ namespace WarGUI
                 lblPlayer2Outcome.ForeColor = Color.Blue;
 
                 // notify player of this stunning development
-                MessageBox.Show("Warrior Wench threw " + war.GameTable.Player1Cards[war.GameTable.Player1Cards.Count - 1].ToString()
+                MessageBox.Show("Warrior Wendy threw " + war.GameTable.Player1Cards[war.GameTable.Player1Cards.Count - 1].ToString()
                                 + ", White Wraith threw " + war.GameTable.Player2Cards[war.GameTable.Player2Cards.Count - 1].ToString()
                                 + ". THIS IS WAR!", "AW SNAP, SON!");
             }
@@ -205,19 +204,19 @@ namespace WarGUI
                 switch (placedCards)
                 {
                     case 0:
-                        ShowCard((player == BoardPlayer.WarriorWench ? imgPlayer1Card : imgPlayer2Card), hand[i]); 
+                        ShowCard((player == BoardPlayer.WarriorWendy ? imgPlayer1Card : imgPlayer2Card), hand[i]); 
                         break;
                     case 1:
-                        ShowCard((player == BoardPlayer.WarriorWench ? imgPlayer1CardB : imgPlayer2CardB), hand[i]); 
+                        ShowCard((player == BoardPlayer.WarriorWendy ? imgPlayer1CardB : imgPlayer2CardB), hand[i]); 
                         break;
                     case 2:
-                        ShowCard((player == BoardPlayer.WarriorWench ? imgPlayer1CardC : imgPlayer2CardC), hand[i]); 
+                        ShowCard((player == BoardPlayer.WarriorWendy ? imgPlayer1CardC : imgPlayer2CardC), hand[i]); 
                         break;
                     case 3:
-                        ShowCard((player == BoardPlayer.WarriorWench ? imgPlayer1CardD : imgPlayer2CardD), hand[i]); 
+                        ShowCard((player == BoardPlayer.WarriorWendy ? imgPlayer1CardD : imgPlayer2CardD), hand[i]); 
                         break;
                     case 4:
-                        ShowCard((player == BoardPlayer.WarriorWench ? imgPlayer1CardE : imgPlayer2CardE), hand[i]); 
+                        ShowCard((player == BoardPlayer.WarriorWendy ? imgPlayer1CardE : imgPlayer2CardE), hand[i]); 
                         break;
                 }
                 placedCards++;

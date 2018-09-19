@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblWenchCardCount = new System.Windows.Forms.Label();
+            this.lblWendyCardCount = new System.Windows.Forms.Label();
             this.lblWraithCardCount = new System.Windows.Forms.Label();
             this.btnDeal = new System.Windows.Forms.Button();
             this.lblBoard = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 18);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Warrior Wench";
+            this.label1.Text = "Warrior Wendy";
             // 
             // label2
             // 
@@ -84,15 +84,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "White Wraith";
             // 
-            // lblWenchCardCount
+            // lblWendyCardCount
             // 
-            this.lblWenchCardCount.AutoSize = true;
-            this.lblWenchCardCount.Location = new System.Drawing.Point(124, 300);
-            this.lblWenchCardCount.Name = "lblWenchCardCount";
-            this.lblWenchCardCount.Size = new System.Drawing.Size(37, 13);
-            this.lblWenchCardCount.TabIndex = 7;
-            this.lblWenchCardCount.Text = "Cards:";
-            this.lblWenchCardCount.Visible = false;
+            this.lblWendyCardCount.AutoSize = true;
+            this.lblWendyCardCount.Location = new System.Drawing.Point(124, 300);
+            this.lblWendyCardCount.Name = "lblWendyCardCount";
+            this.lblWendyCardCount.Size = new System.Drawing.Size(37, 13);
+            this.lblWendyCardCount.TabIndex = 7;
+            this.lblWendyCardCount.Text = "Cards:";
+            this.lblWendyCardCount.Visible = false;
             // 
             // lblWraithCardCount
             // 
@@ -303,7 +303,7 @@
             this.Controls.Add(this.imgPlayer1Card);
             this.Controls.Add(this.btnDeal);
             this.Controls.Add(this.lblWraithCardCount);
-            this.Controls.Add(this.lblWenchCardCount);
+            this.Controls.Add(this.lblWendyCardCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vsImage);
@@ -337,7 +337,7 @@
         private System.Windows.Forms.PictureBox Warrior1Avatar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblWenchCardCount;
+        private System.Windows.Forms.Label lblWendyCardCount;
         private System.Windows.Forms.Label lblWraithCardCount;
         private System.Windows.Forms.Button btnDeal;
         private System.Windows.Forms.PictureBox imgPlayer1Card;

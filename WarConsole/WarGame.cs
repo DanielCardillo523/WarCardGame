@@ -43,7 +43,7 @@ namespace WarConsole
                 Console.WriteLine(game.Winner.Name + " has won the game!  Good job " + game.Winner.Name + "!  Better luck next time, " +
                     (game.Winner == game.Player1 ? game.Player2.Name : game.Player1.Name) + "!" + Environment.NewLine + Environment.NewLine + 
                     "STATS: " + game.TotalRounds + " total rounds played.  " + 
-                    (game.TotalWars == 0 ? "War was never declared. *cough* sissies *cough*" :
+                    (game.TotalWars == 0 ? "War was never declared.  Three cheers for pacifists!" :
                                             "War was declared " + (game.TotalWars == 1 ? "once." :
                                                                    game.TotalWars == 2 ? "twice." : 
                                                                    game.TotalWars.ToString() + " times.")));
